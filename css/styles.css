@@ -3,3 +3,69 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+@keyframes circle {
+    from {
+        rotate: 0;
+    }
+    to {
+        rotate: 360deg;
+    }
+}
+
+.parent {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ccc;
+    border-radius: 50%;
+    animation: circle 1s linear infinite;
+}
+
+.parent::before {
+    content: "";
+    position: absolute;
+    border-width: 250px;
+    border-color: red transparent transparent transparent;
+    border-style: solid;
+    border-radius: 50%;
+}
+
+.child {
+    width: 400px;
+    height: 400px;
+    background: #000;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* ---------------------------- */
+.toggle {
+    width: 200px;
+    height: 100px;
+    border-radius: 60px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    transition: all linear 0.25s;
+}
+
+.toggle:hover {
+    background: #6a5af9;
+}
+
+.toggle:hover .circle {
+    transform: translateX(100px);
+}
+
+.circle {
+    background: #fff;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-left: 5px;
+    transition: all linear 0.25s;
+}
