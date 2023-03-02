@@ -8,10 +8,17 @@ body {
     min-height: 100vh;
 }
 
+input {
+    margin: 20px;
+    padding: 4px 12px;
+    font-size: 20px;
+}
+
 .app {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .list {
@@ -19,13 +26,35 @@ body {
     padding: 12px 0px;
     border-radius: 12px;
     list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 1200px;
 }
 
 .item {
-    padding: 4px 12px;
+    width: calc(100% / 5 - 4px);
+    background: #ddd;
+    border-radius: 6px;
+    padding-bottom: 20px;
 }
 
 .item:hover {
     cursor: pointer;
     background: #ccc;
+}
+
+.item img {
+    width: 100%;
+}
+
+.title {
+    padding: 4px 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 20px;
+    height: 64px;
 }

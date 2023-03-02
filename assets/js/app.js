@@ -114,8 +114,9 @@ const arr = [
 // console.log(userA.sdt);
 
 const list = document.querySelector(".list");
+const inp = document.querySelector(".input");
 
-console.log(list);
+let filter = [];
 
 const data = [
     {
@@ -180,17 +181,30 @@ const data = [
     },
 ];
 
-let htmls = '';
+const setList = function (arr) {
+    let htmls = "";
 
-const items = data.forEach(function (item) {
-    const html = `
+    const items = arr.forEach(function (item) {
+        const html = `
         <li class="item">
             <img src="${item.src}" alt="">
-            <p>${item.title}</p>
+            <p class="title" title="${item.title}">${item.title}</p>
         </li>
     `;
 
-    htmls += html
-});
+        htmls += html;
+    });
 
-list.innerHTML = htmls
+    list.innerHTML = htmls;
+};
+
+setList(data);
+
+inp.oninput = function (e) {
+    const value = e.target.value;
+    if (value == "") return setList(data);
+    filter = data.filter(function (item) {
+        return item.title.indexOf(value) == -1 ? false : true;
+    });
+    setList(filter);
+};
