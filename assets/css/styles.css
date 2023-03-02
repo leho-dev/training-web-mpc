@@ -6,25 +6,26 @@
 
 body {
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
 }
 
 .app {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-.btn-class {
+.list {
+    background: #eee;
+    padding: 12px 0px;
+    border-radius: 12px;
+    list-style-type: none;
+}
+
+.item {
     padding: 4px 12px;
-    transition: all linear 0.25s;
 }
 
-.btn-class.active {
-    transform: scale(1.2);
-}
-
-.btn-class + .btn-class {
-    margin-top: 12px;
+.item:hover {
+    cursor: pointer;
+    background: #ccc;
 }
