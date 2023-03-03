@@ -1,210 +1,85 @@
-const myString = "Hello World!";
+// JSON -> Chuỗi
+// [], {}, string, number, boolean, null
 
-// console.log(myString);
+// stringify: chuyển dữ liệu sang dạng JSON
+// parse: chuyển JSON về dạng dữ liệu gốc
 
-// length
-// console.log(myString.length)
+// const arr = [1, "2", true, { a: 1 }, function () {}];
 
-// indexOf
-// console.log(myString.indexOf('H', 5))
+// const JSONdata = JSON.stringify(arr);
 
-// search
-// console.log(myString.search('o'))
+// console.log(JSON.parse(JSONdata))
 
-// slice
-// console.log(myString.slice(2, 8))
+// session storage
+// cookie
 
-// replace
-// console.log(myString.replace("lll", "LL"));
+// local storage
+// const obj = { data: "light" };
+// localStorage.setItem("theme", JSON.stringify(obj));
+// localStorage.setItem("theme2", JSON.stringify(obj));
 
-// toUpperCase
-// console.log(myString.toUpperCase())
+// console.log(JSON.parse(localStorage.getItem("theme")));
 
-// toLowerCase
-// console.log(myString.toLowerCase())
+// localStorage.removeItem("theme")
+// localStorage.clear()
 
-// split
-// console.log('02-03-2023'.split('-')[0])
+let theme = "light";
 
-const number = 2000.503872764;
+// thực thi hành động => theme = 'dark'
 
-// toFixed
-// console.log(number.toFixed(3));
+// document.querySelector("button").onclick = function () {
+//     const value = document.querySelector("input").value;
+//     localStorage.setItem("user", JSON.stringify(value));
+// };
 
-// parseInt
-// console.log(parseInt(number));
+// falsy + truthy
+// const data = false || 4 || undefined || ''
+//  const data = 1 && 4 && 3 && 2;
+// console.log(data)
 
-// parseFloat
-// console.log(parseFloat(number));
+// map
+const data = [1, 2, 3];
+const dataMap = data.map((item) => item * 2);
 
-const arr = [
-    "Seminar IOT",
-    "Tester Seminar Fullstack",
-    "Big Data Seminar IOT 2",
-];
+// console.log(dataMap)
 
-// length
-// console.log(arr.length)
+// ES6
 
-// pop
-// console.log(arr.pop())
-// console.log(arr.pop());
-// console.log(arr)
-
-// push
-// console.log(arr.push('20'))
-// console.log(arr.push("20"));
-// console.log(arr)
-
-// shift
-// console.log(arr.shift())
-// console.log(arr.shift());
-// console.log(arr)
-
-// unshift
-// console.log(arr.unshift('20'))
-// console.log(arr.unshift("20"));
-// console.log(arr)
-
-// join
-// console.log(arr.join(' - '))
-
-// for
-// for (let i = 0; i < arr.length; i++) {
-//     console.log(arr[i])
+// arrow function
+// function sum(a, b) {
+//     return a + b;
 // }
 
-// forEach
-// arr.forEach(function (item, index) {
-//     console.log(item, index);
-// });
+// const sumES6 = (a, b) => a + b;
 
-// for of
-// for in
+// spread
+// const arr = [1, 2, 3];
+// const arr1 = [5, 6, 7];
+// const arr2 = [...arr, 4, ...arr1];
+// console.log(arr2);
 
-// find
-// const data = arr.find(function (item, index) {
-//     return item == 4;
-// });
+// rest
+// const user = {
+//     username: 'a',
+//     password: '123456'
+//  };
+// const { password, ...objRest } = user;
+// console.log(objRest)
 
-// function find2(array, value) {
-//     for (let i = 0; i < array.length; i++) {
-//         if (arr[i] == value) {
-//             return arr[i];
-//         }
-//     }
-//     return undefined;
+// const User = { user: '123', pass: '456' }
+// const { user: user2, pass } = User
+// console.log(user2)
+
+// set
+// const arr = [1, 1, 2, 3, 2, 4, 3];
+// console.log([...new Set(arr)]);
+
+// default parameter
+// function myFunction(x, y = 10) {
+//   return x + y;
 // }
+// console.log(myFunction(5));
 
-// filter
-// const dataSearch = "IOT";
-// const data = arr.filter(function (item, index) {
-//     return item.indexOf(dataSearch) == -1 ? false : true;
-// });
-
-// console.log(data);
-
-// object
-// const userA = {
-//     name: "Nguyễn Văn A",
-//     sdt: "0121293414",
-//     address: "asdjhggashjdgashjdghasj"
-// }
-
-// console.log(userA.sdt);
-
-const list = document.querySelector(".list");
-const inp = document.querySelector(".input");
-
-let filter = [];
-
-const data = [
-    {
-        title: "Dép bánh mì nam nữ đế cao 5cm, dép quai ngang chất liệu Eva cao cấp",
-        src: "https://cf.shopee.vn/file/c7bcc01b8c8a81a6a111474468162d8a_tn",
-    },
-    {
-        title: "Loa bluetooth mini không dây,nghe nhạc,giá rẻ,công nghệ blutooth 5.0 BINTECH",
-        src: "https://cf.shopee.vn/file/e66cc386528d8c5119b59cd20ccacc22_tn",
-    },
-    {
-        title: "Tai nghe bluetooth MINPRO M10 PRO, tai nghe không dây nghe nhạc chơi game công nghệ bluetooth 5.0",
-        src: "https://cf.shopee.vn/file/sg-11134201-22110-jd4256iuf9jvf6_tn",
-    },
-    {
-        title: "Váy Nữ Buộc Cổ Khóa Lưng Dáng Ngắn Ngang Đùi 2 Màu Đen, Đầm Dự Tiệc Cực Xinh",
-        src: "https://cf.shopee.vn/file/360b4be695501be29659f3cdc35d63da_tn",
-    },
-    {
-        title: "Dép Sục Hà Mã Mắt To Dễ Thương Hot Trend",
-        src: "https://cf.shopee.vn/file/sg-11134201-22110-5co0i2evafkve8_tn",
-    },
-    {
-        title: "Áo phông form rộng tay lỡ Hadez hình chữ H unisex",
-        src: "https://cf.shopee.vn/file/sg-11134201-22090-suwtr6yu1vhvd6_tn",
-    },
-    {
-        title: "Tai nghe chụp tai không dây bluetooth STN28 màu sắc cute,âm thanh ấm bass mạnh- Phụ Kiện 123",
-        src: "https://cf.shopee.vn/file/f2f227a59f6a5fb1eb1dc2893057aeab_tn",
-    },
-    {
-        title: "Áo Khoác Cardigan Kẻ Thoi Form Rộng Đen/ Hồng Chất Nỉ New",
-        src: "https://cf.shopee.vn/file/sg-11134201-22100-9yezc7g76siv15_tn",
-    },
-    {
-        title: "Dép lông con sóc siêu cute xả khokho85k-85k sập giá",
-        src: "https://cf.shopee.vn/file/sg-11134201-22100-uqpp5h6xreiv8a_tn",
-    },
-    {
-        title: "Áo Khoác Nỉ Bông Thêu Hoodie Zip Unisex Nam Nữ Thời Trang Phong Cách Hàn Quốc(Hàng Sẵn)",
-        src: "https://cf.shopee.vn/file/fd69f61704c6ae68199b7c1c8cad8f3c_tn",
-    },
-    {
-        title: "Dép Sục Cross Đế Bánh Mì Tăng Chiều Cao Đính Sticker 2D",
-        src: "https://cf.shopee.vn/file/sg-11134201-22090-ioy1ubnmjxhv72_tn",
-    },
-    {
-        title: "Áo thun Outerity Signature Trắng ver2.0- Lisa offical( V405)",
-        src: "https://cf.shopee.vn/file/sg-11134201-23010-pdpnzmvxtulvcd_tn",
-    },
-    {
-        title: "Loa bluetooth mini không dây nghe nhạc, cắm usb thẻ nhớ đa năng có đèn led chính hãng - MINPRO",
-        src: "https://cf.shopee.vn/file/6cbf33b1074174ec070c722bf29f81c5_tn",
-    },
-    {
-        title: "Áo Khoác Cardigan Viền Xanh Nâu FRMLK Form Rộng chew",
-        src: "https://cf.shopee.vn/file/sg-11134201-22110-ip926m6el6jvad_tn",
-    },
-    {
-        title: "Dép Bông nữ hình sóc nhe răng ngộ nghĩnh xả kho 85k",
-        src: "https://cf.shopee.vn/file/sg-11134201-22100-58y61txk7piv3d_tn",
-    },
-];
-
-const setList = function (arr) {
-    let htmls = "";
-
-    const items = arr.forEach(function (item) {
-        const html = `
-        <li class="item">
-            <img src="${item.src}" alt="">
-            <p class="title" title="${item.title}">${item.title}</p>
-        </li>
-    `;
-
-        htmls += html;
-    });
-
-    list.innerHTML = htmls;
-};
-
-setList(data);
-
-inp.oninput = function (e) {
-    const value = e.target.value;
-    if (value == "") return setList(data);
-    filter = data.filter(function (item) {
-        return item.title.indexOf(value) == -1 ? false : true;
-    });
-    setList(filter);
-};
+// trim
+// const string = "   jshdf djfsh jfhs    ";
+// console.log(string.trim());
